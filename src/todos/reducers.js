@@ -21,8 +21,8 @@ export const todos = (state = [], action) => {
             return state.concat(todo);
         }
         case REMOVE_TODO: {
-            const {text} = payload;
-            return state.filter(todos => todos.text !== text);
+            const {todo: todoToRemove} = payload;
+            return state.filter(todos => todos.id !== todoToRemove.id);
         }
         case COMPLETE_TODO: {
             const {text} = payload;
