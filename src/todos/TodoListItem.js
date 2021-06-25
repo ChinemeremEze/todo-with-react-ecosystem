@@ -22,7 +22,7 @@ const ButtonsContainer = styled.div`
     right: 12px;
     bottom: 12px;
 `;
-const CompletedButton = styled.button`
+const Button = styled.button`
     font-size: 16px;
     padding: 8px;
     border: none;
@@ -30,17 +30,12 @@ const CompletedButton = styled.button`
     outline: none;
     cursor: pointer;
     display: inline-block;
+`;
+const CompletedButton = styled(Button)`
     background-color: #22ee22;
 `;
 
-const RemoveButton = styled.button`
-    font-size: 16px;
-    padding: 8px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    cursor: pointer;
-    display: inline-block;
+const RemoveButton = styled(Button)`
     background-color: #ee2222;
     margin-left: 8px;
 `;
