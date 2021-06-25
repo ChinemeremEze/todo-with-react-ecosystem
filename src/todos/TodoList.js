@@ -2,11 +2,17 @@ import React, { useEffect} from 'react';
 import { connect } from 'react-redux';
 import TodoListItem from './TodoListItem'; 
 import NewTodoForm from './NewTodoForm';
+import styled from 'styled-components';
 import { loadTodos, removeTodoRequest, updateTodoRequest } from './thunks';
-import { getTodos, getTodosLoading, getCompleteTodos, getIncompleteTodos } from './selectors';
+import { getTodosLoading, getCompleteTodos, getIncompleteTodos } from './selectors';
 import './TodoList.css'
 
-function TodoList({completedTodos, incompleteTodos, onRemovePressed, onCompletePressed, isLoading, startLoadingTodos}){
+const BigRedText = styled.div`
+    font-size: 48px;
+    color: #FF0000;
+`;
+
+const TodoList = ({completedTodos, incompleteTodos, onRemovePressed, onCompletePressed, isLoading, startLoadingTodos}) =>{
 
     useEffect(() => {
         startLoadingTodos();
@@ -15,6 +21,7 @@ function TodoList({completedTodos, incompleteTodos, onRemovePressed, onCompleteP
     const loadingMessage = <div>loading todos....</div>;
     const content = (
         <div className="list-wrapper">
+        <BigRedText>I'm big red text</BigRedText>
             <NewTodoForm/>
             <h3>Incomplete:</h3>
             {incompleteTodos.map(todo => 
