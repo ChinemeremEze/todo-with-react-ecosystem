@@ -5,11 +5,10 @@ import NewTodoForm from './NewTodoForm';
 import styled from 'styled-components';
 import { loadTodos, removeTodoRequest, updateTodoRequest } from './thunks';
 import { getTodosLoading, getCompleteTodos, getIncompleteTodos } from './selectors';
-import './TodoList.css'
 
-const BigRedText = styled.div`
-    font-size: 48px;
-    color: #FF0000;
+const ListWrapper = styled.div`
+    max-width: 700px;
+    margin: auto;
 `;
 
 const TodoList = ({completedTodos, incompleteTodos, onRemovePressed, onCompletePressed, isLoading, startLoadingTodos}) =>{
@@ -20,8 +19,7 @@ const TodoList = ({completedTodos, incompleteTodos, onRemovePressed, onCompleteP
 
     const loadingMessage = <div>loading todos....</div>;
     const content = (
-        <div className="list-wrapper">
-        <BigRedText>I'm big red text</BigRedText>
+        <ListWrapper>
             <NewTodoForm/>
             <h3>Incomplete:</h3>
             {incompleteTodos.map(todo => 
@@ -39,7 +37,7 @@ const TodoList = ({completedTodos, incompleteTodos, onRemovePressed, onCompleteP
                 onCompletePressed={onCompletePressed}
                 />)
             }
-        </div>
+        </ListWrapper>
     );
     return isLoading? loadingMessage: content;
 };
